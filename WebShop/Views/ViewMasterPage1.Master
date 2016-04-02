@@ -35,7 +35,7 @@
                 <li><a href="../Home.aspx">Home</a></li>
                 <li><a href="#">Articles</a>
                     <ul>
-                        <li><a href="#"></a></li>
+                        <li><a href="../Controllers/ArticlesController.cs">Show Articles</a></li>
                         <li><a href="#"></a></li>
                         <li><a href="#"></a></li>
                     </ul>
