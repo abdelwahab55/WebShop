@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<catalog>
+<books>
    <book id="101">
       <author>Gambardella, Matthew</author>
       <title>XML Developer's Guide</title>
@@ -129,4 +129,4 @@
       environment.</description>
       <VAT>0.10</VAT>
    </book>
-</catalog>
+</books>
