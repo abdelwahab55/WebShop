@@ -118,7 +118,6 @@
 {
     position: fixed;
     display: none;
-    top: 20%;
-    left:30%;
+    border:initial;
 }
 

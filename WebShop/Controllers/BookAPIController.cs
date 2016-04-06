@@ -58,8 +58,20 @@ namespace WebShop.Controllers
         }
 
         // POST api/bookapi
-        public void Post([FromBody]string value)
+        public void AddToCart(string id)
         {
+            if (System.Web.HttpContext.Current.Session["Cart"] == null)
+            {
+                List<string> CartBookIDs = new List<string>();
+                CartBookIDs.Add(id);
+                System.Web.HttpContext.Current.Session["Cart"] = CartBookIDs;
+            }
+            else
+            {
+                List<string> CartBookIDs = (List<string>)System.Web.HttpContext.Current.Session["Cart"];
+                CartBookIDs.Add(id);
+                System.Web.HttpContext.Current.Session["Cart"] = CartBookIDs;
+            }
         }
 
         // PUT api/bookapi/5
@@ -71,5 +83,6 @@ namespace WebShop.Controllers
         public void Delete(int id)
         {
         }
+
     }
 }
