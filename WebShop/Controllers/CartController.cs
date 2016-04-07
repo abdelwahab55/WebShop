@@ -26,39 +26,13 @@ namespace WebShop.Controllers
             {
                 List<string> CartBookIDs = (List<string>)HttpContext.Session["Cart"];
 
-                string xmlData = Server.MapPath("~/App_Data/Books.xml");
-                DataSet ds = new DataSet();
-                ds.ReadXml(xmlData);
-                List<Books> BooksList = new List<Books>();
-                BooksList = (from rows in ds.Tables[0].AsEnumerable()
-                             select new Books
-                             {
-                                 BookID = Convert.ToInt32(rows["id"].ToString()),
-                                 Author = rows["author"].ToString(),
-                                 Title = rows["title"].ToString(),
-                                 Genre = rows["genre"].ToString(),
-                                 Price = decimal.Parse(rows["price"].ToString()),
-                                 PublishDate = DateTime.Parse(rows["publish_date"].ToString()),
-                                 Description = rows["description"].ToString(),
-                                 VatPercentage = decimal.Parse(rows["VAT"].ToString()),
-                             }).ToList();
-
-                for (int i = 0; i < BooksList.Count; i++)
+                CartBooksList = Utilities.GetBooksAddedToCart(CartBookIDs);
+                
+                for (int i = 0; i < CartBooksList.Count; i++)
                 {
-                    for (int j = 0; j < CartBookIDs.Count; j++)
-                    {
-                        if (BooksList[i].BookID.ToString() == CartBookIDs[j])
-                        {
-                            Books Book=new Books();
-                            Book.Title=BooksList[i].Title;
-                            Book.Author=BooksList[i].Author;
-                            Book.Price=BooksList[i].Price;
-                            Book.VatPercentage=BooksList[i].VatPercentage;
-                            CartBooksList.Add(Book);
-                            TotalVat += (BooksList[i].VatPercentage * BooksList[i].Price);
-                            TotalPrice += BooksList[i].Price;
-                        }
-                    }
+                    TotalVat += (CartBooksList[i].VatPercentage * CartBooksList[i].Price);
+                    TotalPrice += CartBooksList[i].Price;
+
                 }
                 TotalFinalPrice = TotalPrice + TotalVat;
             }
