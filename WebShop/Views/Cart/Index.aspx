@@ -7,18 +7,18 @@
       string TotalVAT = ViewData["TotalVAT"].ToString();
       string TotalFinalPrice = ViewData["TotalFinalPrice"].ToString();%>
     <h2>Cart</h2>
-    <table>
+    <table style="width: 349px">
         <tr>
-            <th>
+            <th style="width: 27px">
                 <%: Html.DisplayNameFor(model => model.Title) %>       
             </th>
-            <th>
+            <th style="width: 30px">
                 <%: Html.DisplayNameFor(model => model.Author) %>
             </th>
-            <th>
+            <th style="width: 28px">
                 <%: Html.DisplayNameFor(model => model.Price) %>
             </th>
-            <th>
+            <th style="width: 26px">
                 <%: Html.DisplayNameFor(model => model.VatPercentage) %>
             </th>
         </tr>
@@ -26,16 +26,16 @@
         <% foreach (var item in Model)
            { %>
         <tr>
-            <td>
+            <td style="width: 27px">
                 <%: Html.DisplayFor(modelItem => item.Title) %>            
             </td>
-            <td>
+            <td style="width: 30px">
                 <%: Html.DisplayFor(modelItem => item.Author) %>
             </td>
-            <td>
+            <td style="width: 28px">
                 <%: Html.DisplayFor(modelItem => item.Price) %>
             </td>
-            <td>
+            <td style="width: 26px">
                 <%: Html.DisplayFor(modelItem => item.VatPercentage) %>
             </td>
         </tr>
@@ -51,4 +51,5 @@
             <td>"<%= TotalFinalPrice %>"</td>
         </tr>
     </table>
+    <%= Html.ActionLink("Check Out", "Index", "Registeration") %>
 </asp:Content>
