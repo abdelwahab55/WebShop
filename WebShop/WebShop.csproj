@@ -155,7 +155,9 @@
     <Content Include="Style.css" />
     <Content Include="Views\PopUp\GetPopUp.ascx" />
     <Content Include="Views\Registeration\Index.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

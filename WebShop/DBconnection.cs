@@ -12,7 +12,8 @@ namespace WebShop
         static DBconnection()
         {
             myAdapter = new SqlDataAdapter();
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["WebShopDB"].ConnectionString);
+            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["WebShopDB"].ConnectionString.
+                Replace("{%FileName%}",AppDomain.CurrentDomain.BaseDirectory));
         }
 
         /// <method>
