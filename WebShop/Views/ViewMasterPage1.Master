@@ -31,16 +31,14 @@
         </div>
         <div id="Navigation">
             <ul id="nav">
-                <li><a href="../Home.aspx">Home</a></li>
+                <li><a href="../Home">Home</a></li>
                 <li><a href="#">Articles</a>
                     <ul>
                         <li><a href="../Articles">Show Articles</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
                     </ul>
                 </li>
-                <li><a id="A1" href="../Cart" runat="server">Cart</a></li>
-                <li><a id="A2" href="#" runat="server">About</a></li>
+                <li><a href="../Cart" runat="server">Cart</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </div>
         <div id="content_area">

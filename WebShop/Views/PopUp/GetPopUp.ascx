@@ -46,5 +46,5 @@
     </tr>
 </table>
 <p>
-    <button onclick="CloseWindow()">Close</button>
+    <button onclick="CloseWindow();return false;">Close</button>
 </p>

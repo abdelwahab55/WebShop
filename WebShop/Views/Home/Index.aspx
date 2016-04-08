@@ -3,6 +3,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<h2>Index</h2>
+<h2>Welcome To Book Shop Web Site</h2>
 
 </asp:Content>

@@ -15,10 +15,9 @@ namespace WebShop.Controllers
     public class BookAPIController : ApiController
     {
         // GET api/bookapi
-        //public IEnumerable<Books> Get()
         public IEnumerable<Books> GetBooksList()
         {
-            return Utilities.ReadBooksListFromXML();
+            return Utilities.ReadBooksListFromXML(1);
         }
 
         // GET api/bookapi/5
@@ -42,7 +41,7 @@ namespace WebShop.Controllers
         }
 
         // POST api/bookapi
-        public void AddToCart(string id)
+        public string AddToCart(string id)
         {
             if (System.Web.HttpContext.Current.Session["Cart"] == null)
             {
@@ -56,6 +55,7 @@ namespace WebShop.Controllers
                 CartBookIDs.Add(id);
                 System.Web.HttpContext.Current.Session["Cart"] = CartBookIDs;
             }
+            return (((List<string>)System.Web.HttpContext.Current.Session["Cart"]).Count).ToString();
         }
 
         // PUT api/bookapi/5

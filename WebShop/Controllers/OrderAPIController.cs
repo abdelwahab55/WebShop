@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -24,22 +25,11 @@ namespace WebShop.Controllers
         }
 
         // POST api/orderapi
-        public void CheckOut(string id)
+        public bool CheckOut([FromBody] Customer Customer)
         {
             if (System.Web.HttpContext.Current.Session["Cart"] != null)
             {
-                //fill customer data
-                Customer Customer = new Customer();
-                string[] data = id.Split(',');
-
-                Customer.FirstName = data[0];
-                Customer.LastName = data[1];
-                Customer.HouseNumber = data[2];
-                Customer.Address = data[3];
-                Customer.City = data[4];
-                Customer.ZipCode = data[5];
-                Customer.Email = data[6];
-
+                //fill customer 
                 int CustomerID = DataAccess.AddCustomer(Customer);
 
                 //fill order data
@@ -71,16 +61,21 @@ namespace WebShop.Controllers
                 List<OrderItem> OrderItems = new List<OrderItem>();
                 for (int i = 0; i < CartBookIDs.Count; i++)
                 {
-                    OrderItem OrderItem =new Models.OrderItem();
-                    OrderItem.Book=new Books();
-                    OrderItem.Book.BookID=int.Parse(CartBookIDs[i]);
-                    OrderItem.Order=new Models.Order();
-                    OrderItem.Order.OrderID=OrderID;
+                    OrderItem OrderItem = new Models.OrderItem();
+                    OrderItem.Book = new Books();
+                    OrderItem.Book.BookID = int.Parse(CartBookIDs[i]);
+                    OrderItem.Order = new Models.Order();
+                    OrderItem.Order.OrderID = OrderID;
                     OrderItems.Add(OrderItem);
                 }
                 DataAccess.AddOrderItem(OrderItems);
+                System.Web.HttpContext.Current.Session["Cart"] = null;
+                return true;
             }
-            System.Web.HttpContext.Current.Session["Cart"] = null;
+            else
+            {
+                return false;
+            }
         }
 
         // PUT api/orderapi/5

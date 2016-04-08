@@ -109,6 +109,8 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderAPIController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PaginationController.cs" />
     <Compile Include="Controllers\PopUpController.cs" />
     <Compile Include="Controllers\RegisterationController.cs" />
     <Compile Include="DataAccess.cs" />
@@ -130,6 +132,8 @@
     <Content Include="App_Data\Books.xml" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\bar_background.png" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />

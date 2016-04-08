@@ -41,13 +41,14 @@
         </tr>
         <% } %>
     </table>
+    <br />
     <table>
         <tr>
             <td>Total Price :</td>
             <td>"<%= TotalPrice %>"</td>
             <td>Total Vat :</td>
             <td>"<%= TotalVAT %>"</td>
-            <td>Total Final Price</td>
+            <td>Total Final Price :</td>
             <td>"<%= TotalFinalPrice %>"</td>
         </tr>
     </table>
